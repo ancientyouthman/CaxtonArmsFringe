@@ -34,5 +34,10 @@ namespace CaxtonArmsFringe.Controllers
             return View();
         }
 
+
+        public ActionResult Success()
+        {
+            return View();
+        }
     }
 }

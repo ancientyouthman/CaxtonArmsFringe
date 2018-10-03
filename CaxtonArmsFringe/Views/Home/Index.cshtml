@@ -1,69 +1,74 @@
 ﻿@model BrochureSubmissionModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Submit your details";
 }
-
-<div class="jumbotron">
-    <h1>HEllo you cunt</h1>
-</div>
-
 <div class="row">
-@using (Html.BeginForm("SubmitBrochure", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>enter your details.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(x => x.Name, new { @class = "col-md-2 control-label required" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control required" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(x => x.Email, new { @class = "col-md-2 control-label required" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(x => x.Email, new { @class = "form-control required" })
-        </div>
+    <h1>The Caxton Arms</h1>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(x => x.TwitterHandle, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(x => x.TwitterHandle, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(x => x.Bio, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(x => x.Bio, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(x => x.TicketPrice, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(x => x.TicketPrice, new { @class = "form-control" })
-        </div>
-    </div>
+    <div class="row">
+        @using (Html.BeginForm("SubmitBrochure", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <h3>Enter your details on the form below...</h3>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(x => x.Name, new { @class = "col-md-2 control-label required" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control required" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.StageName, new { @class = "col-md-2 control-label required" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.StageName, new { @class = "form-control required" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(x => x.Photo, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(x => x.Photo, new { @class = "form-control", type = "File", accept = "image/png, image/jpeg" })
-        </div>
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Email, new { @class = "col-md-2 control-label required" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control required" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.TwitterHandle, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.TwitterHandle, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Bio, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.Bio, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.TicketPrice, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.TicketPrice, new { @class = "form-control" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(x => x.AdditionalInfo, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(x => x.AdditionalInfo, new { @class = "form-control", rows = 8 })
-        </div>
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Photo, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.Photo, new { @class = "form-control", type = "File", accept = "image/png, image/jpeg" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Submit form" />
-        </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.AdditionalInfo, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(x => x.AdditionalInfo, new { @class = "form-control", rows = 8 })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Submit form" />
+                </div>
+            </div>
+        }
     </div>
-}
-</div>
