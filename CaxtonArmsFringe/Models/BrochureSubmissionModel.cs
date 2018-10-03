@@ -25,7 +25,12 @@ namespace CaxtonArmsFringe.Models
         public string Bio { get; set; }
 
         [Display(Name = "Ticket price")]
-        public decimal TicketPrice { get; set; }
+        public string TicketPrice { get; set; }
+
+        public HttpPostedFileBase Photo { get; set; }
+
+        [Display(Name = "Any additional information you'd like to add?")]
+        public string AdditionalInfo { get; set; }
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CaxtonArmsFringe.Models;
+using CaxtonArmsFringe.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,8 @@ namespace CaxtonArmsFringe.Controllers
 {
     public class HomeController : Controller
     {
+        private EmailService _emailService = new EmailService();
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -15,9 +19,13 @@ namespace CaxtonArmsFringe.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(int blah)
+        public ActionResult SubmitBrochure(BrochureSubmissionModel model)
         {
-            return View();
+            if (!ModelState.IsValid) return View("Index", model);
+            var result = _emailService.SendEmail(model);
+            if (result.Success) return Redirect("Success");
+            ModelState.AddModelError("", result.Message);
+            return View("Index", model);
         }
 
         public ActionResult About()
