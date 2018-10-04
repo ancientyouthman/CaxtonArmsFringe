@@ -21,6 +21,7 @@ namespace CaxtonArmsFringe.Models
         [Display(Name = "Twitter handles")]
         public string TwitterHandle { get; set; }
 
+        [Display(Name = "Bio (max 600 characters)")]
         [MaxLength(600, ErrorMessage = "Please limit your bio to 600 characters")]
         public string Bio { get; set; }
 

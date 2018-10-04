@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Caxton Arms Comedy</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 <body>
@@ -21,8 +22,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Form", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Welcome to The Caxton Arms", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Caxton Comedy what's on guide", "Brochure", "Home")</li>
                 </ul>
             </div>
         </div>
